@@ -20,6 +20,12 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         console.log('a user disconnected')
     })
+
+    socket.on('message:send', (message) => {
+      console.log(`message received: ${message}`)
+
+      io.emit('message:new', message)
+    })
 })
 
 server.listen(port, () => {

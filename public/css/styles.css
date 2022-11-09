@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+#message-form {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    padding: 5px;
+}
+
+#message-form input[type=text] {
+    flex: 1;
+    border: 0;
+    font-size: 1em;
+    padding: 2px;
+}
+
+#message-form button {
+    font-size: 1em;
+    padding: 2px;
+}
+
+#message-form *:focus {
+    outline: none;
+}
+
+#messages p {
+    padding: 5px;
+}
+
+#messages p:nth-child(even) {
+    background-color: beige;
+}
+
+
