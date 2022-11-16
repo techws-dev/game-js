@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors')
+const historyApiFallback = require('connect-history-api-fallback')
 const app = express()
 const port = 3000
 const http = require('http')
@@ -14,6 +15,12 @@ const io = new Server(server, {
 app.use(cors())
 
 app.use(express.static('public'))
+
+// Handle API routes
+app.use('/api', require('./routes'))
+
+// Handle history API fallback
+app.use(historyApiFallback())
 
 io.on('connection', (socket) => {
     console.log('a user connected')
