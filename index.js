@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require('cors')
-const historyApiFallback = require('connect-history-api-fallback')
+const history = require('connect-history-api-fallback')
 const config = require('./src/config')
 const app = express()
 const port = config.server.port
@@ -15,13 +15,13 @@ const io = new Server(server, {
 
 app.use(cors())
 
-app.use(express.static('public'))
-
 // Handle API routes
 app.use('/api', require('./src/routes'))
 
 // Handle history API fallback
-app.use(historyApiFallback())
+app.use(history())
+
+app.use(express.static('public'))
 
 io.on('connection', (socket) => {
     console.log('a user connected')
