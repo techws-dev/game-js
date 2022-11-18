@@ -1,0 +1,8 @@
+<template>
+  <main class="login">
+    <h1>Login</h1>
+  </main>
+</template>
+
+<style>
+</style>
